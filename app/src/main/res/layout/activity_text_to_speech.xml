@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.exple.ex_elli.myapp.TextToSpeechActivity">
+
+    <EditText
+        android:id="@+id/edt_input"
+        android:hint="input what you want robot say"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_say"
+        android:text="say you want"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/sb_default"
+        style="@style/SwitchButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.kyleduo.switchbutton.SwitchButton
+        android:visibility="gone"
+        android:id="@+id/use_focus_open_control"
+        style="@style/SwitchButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:kswTintColor="#D02E21"/>
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical">
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/sb_use_long"
+            style="@style/SwitchButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:focusable="false"/>
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/sb_use_long"/>
+    </RelativeLayout>
+
+</LinearLayout>
