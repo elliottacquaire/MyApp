@@ -7,7 +7,9 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
@@ -15,14 +17,24 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.exple.ex_elli.myapp.R;
+import com.exple.ex_elli.myapp.camera.camerautil.CameraUtil;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.R.attr.data;
 import static com.exple.ex_elli.myapp.camera.camerautil.CameraUtil.getOutputMediaFileUri;
 
 public class CameraActivity extends AppCompatActivity {
+
+    private static final String TAG = CameraActivity.class.getName();
 
     @BindView(R.id.surfaceview)
     SurfaceView surfaceview;
@@ -31,6 +43,10 @@ public class CameraActivity extends AppCompatActivity {
     Button opercarmar;
     @BindView(R.id.opercshexiang)
     Button opercshexiang;
+    @BindView(R.id.btn_carm)
+    FloatingActionButton btnCarm;
+    @BindView(R.id.btn_video)
+    FloatingActionButton btnVideo;
 
     private Uri fileUri;
     private Camera mCamera;
@@ -51,7 +67,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.opercarmar, R.id.opercshexiang})
+    @OnClick({R.id.opercarmar, R.id.opercshexiang,R.id.btn_carm, R.id.btn_video})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.opercarmar:
@@ -84,13 +100,44 @@ public class CameraActivity extends AppCompatActivity {
                 // start the Video Capture Intent
                 startActivityForResult(intent1, 200);
                 break;
+            case R.id.btn_carm:
+                mCamera.takePicture(mShutter,null,mPicture);
+                break;
+            case R.id.btn_video:
+                break;
         }
     }
 
+    private Camera.ShutterCallback mShutter = new Camera.ShutterCallback() {
+        @Override
+        public void onShutter() {
+
+        }
+    };
+    private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
+        @Override
+        public void onPictureTaken(byte[] bytes, Camera camera) {
+            File pictureFile = CameraUtil.getOutputMediaFile(CameraUtil.MEDIA_TYPE_IMAGE);
+            if (pictureFile == null){
+                Log.d(TAG, "Error creating media file, check storage permissions: " );
+                return;
+            }
+
+            try {
+                FileOutputStream fos = new FileOutputStream(pictureFile);
+                fos.write(data);
+                fos.close();
+            } catch (FileNotFoundException e) {
+                Log.d(TAG, "File not found: " + e.getMessage());
+            } catch (IOException e) {
+                Log.d(TAG, "Error accessing file: " + e.getMessage());
+            }
+        }
+    };
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case 100:
                 if (resultCode == RESULT_OK) {
                     // Image captured and saved to fileUri specified in the Intent
@@ -126,9 +173,12 @@ public class CameraActivity extends AppCompatActivity {
     文件保存 - 当拍照结束或者录像视频结束时，需要开启一个后台线程去保存图片或者视频文件。
     释放相机资源 - Camera硬件是一个共享资源，所以你必须小心的编写你的应用代码来管理相机资源。一般在Activity的生命周期的onResume中开机相机，在onPause中释放相机。
     * */
-    /** Check if this device has a camera */
+
+    /**
+     * Check if this device has a camera
+     */
     private boolean checkCameraHardware(Context context) {
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             // this device has a camera
             return true;
         } else {
@@ -136,21 +186,24 @@ public class CameraActivity extends AppCompatActivity {
             return false;
         }
     }
-    /** A safe way to get an instance of the Camera object. */
-    public static Camera getCameraInstance(){
+
+    /**
+     * A safe way to get an instance of the Camera object.
+     */
+    public static Camera getCameraInstance() {
         Camera c = null;
         try {
             c = Camera.open(); // attempt to get a Camera instance
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             // Camera is not available (in use or does not exist)
         }
         return c; // returns null if camera is unavailable
     }
+
     /**
      * 一旦你可以成功访问相机设备，你可以使用Camera#getParameters()方法来获取相机参数信息，可以根据
-     返回值 Camera.Parameters 类来查看当前camea支持哪些参数设置等。当使用API 9或者更高时，
-     你可以使用Camera.getCameraInfo()静态方法来获取前后camera的ID，以及camera数据流的方向和是否能禁止拍照快门声音标记
+     * 返回值 Camera.Parameters 类来查看当前camea支持哪些参数设置等。当使用API 9或者更高时，
+     * 你可以使用Camera.getCameraInfo()静态方法来获取前后camera的ID，以及camera数据流的方向和是否能禁止拍照快门声音标记
      * get current camera info
      *
      * @param cameraId current camera id
@@ -161,4 +214,11 @@ public class CameraActivity extends AppCompatActivity {
         Camera.getCameraInfo(cameraId, cameraInfo);
         return cameraInfo;
     }
+
+    public static boolean isAutoFocusSupported(Camera.Parameters params) {
+        List<String> modes = params.getSupportedFocusModes();
+        return modes.contains(Camera.Parameters.FOCUS_MODE_AUTO);
+    }
+
+
 }

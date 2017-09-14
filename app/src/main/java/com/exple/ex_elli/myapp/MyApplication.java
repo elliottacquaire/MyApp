@@ -27,6 +27,14 @@ public class MyApplication extends Application {
         //此接口在非主进程调用会返回null对象，如需在非主进程使用语音功能，
         // 请使用参数：SpeechConstant.APPID +"=12345678," + SpeechConstant.FORCE_LOGIN +"=true"。
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=59adfe65");
+
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            // This process is dedicated to LeakCanary for heap analysis.
+//            // You should not init your app in this process.
+//            return;
+//        }
+//        LeakCanary.install(this);
+
     }
 
 }

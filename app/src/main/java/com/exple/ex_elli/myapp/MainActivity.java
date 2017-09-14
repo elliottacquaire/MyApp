@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.exple.ex_elli.myapp.BaiduVoice.BaiduVoiceActivity;
 import com.exple.ex_elli.myapp.camera.CameraActivity;
 import com.exple.ex_elli.myapp.xunfeivoice.XunfeiVoiceActivity;
+import com.exple.ex_elli.myapp.yunzhisheng.YunzhishengActivity;
 import com.exple.ex_elli.myapp.zxingcode.ZMainActivity;
 
 import butterknife.BindView;
@@ -34,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnRxjava;
     @BindView(R.id.btn_carmera)
     Button btnCarmera;
+    @BindView(R.id.btn_yunzhisheng)
+    Button btnYunzhisheng;
+    @BindView(R.id.btn_zxingdemo)
+    Button btnZxingdemo;
 
     public static Intent makeIntent(Activity activity, Bundle bundle) {
         Intent intent = new Intent(activity, MainActivity.class);
@@ -70,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_jump_first, R.id.btn_jump_second, R.id.btn_zxcode, R.id.btn_voice, R.id.btn_xunfei, R.id.btn_baidu, R.id.btn_rxjava,R.id.btn_carmera})
+    @OnClick({R.id.btn_jump_first, R.id.btn_jump_second, R.id.btn_yunzhisheng,R.id.btn_zxingdemo, R.id.btn_zxcode, R.id.btn_voice, R.id.btn_xunfei, R.id.btn_baidu, R.id.btn_rxjava, R.id.btn_carmera})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_jump_first:
@@ -104,6 +109,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_carmera:
                 Intent carmera = new Intent(MainActivity.this, CameraActivity.class);
                 startActivity(carmera);
+                break;
+            case R.id.btn_yunzhisheng:
+                Intent yunzhisheng = new Intent(MainActivity.this, YunzhishengActivity.class);
+                startActivity(yunzhisheng);
+                break;
+            case R.id.btn_zxingdemo:
+                Intent zingdemo = new Intent(MainActivity.this, com.exple.ex_elli.myapp.zxingdemo.MainActivity.class);
+                startActivity(zingdemo);
                 break;
         }
     }

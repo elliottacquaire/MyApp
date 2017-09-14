@@ -23,4 +23,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# xun fei
 -keep class com.iflytek.**{*;}
+# yun zhi sheng
+-keep class cn.yunzhisheng.tts.offline.lib.** {*;}

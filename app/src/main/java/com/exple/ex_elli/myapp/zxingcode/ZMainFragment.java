@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.exple.ex_elli.myapp.R;
-import com.exple.ex_elli.myapp.service.MyService;
 import com.exple.ex_elli.myapp.zxingcode.zxing.activity.CaptureActivity;
 import com.exple.ex_elli.myapp.zxingcode.zxing.encoding.EncodingHandler;
 import com.google.zxing.WriterException;
@@ -125,8 +124,8 @@ public class ZMainFragment extends Fragment {
                     Bundle bundle = data.getExtras();
                     String scanResult = bundle.getString("qr_scan_result");
                     Toast.makeText(getActivity(), scanResult, Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getActivity(), MyService.class);
-                    getActivity().startService(intent);
+//                    Intent intent = new Intent(getActivity(), MyService.class);
+//                    getActivity().startService(intent);
                 }
 
             }

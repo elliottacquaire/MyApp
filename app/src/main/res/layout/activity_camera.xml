@@ -25,5 +25,20 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        />
+        >
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_carm"
+            android:layout_gravity="bottom|center_horizontal"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_marginBottom="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_video"
+            android:layout_gravity="bottom"
+            android:src="@mipmap/logo"
+            android:layout_marginBottom="15dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        </FrameLayout>
 </LinearLayout>

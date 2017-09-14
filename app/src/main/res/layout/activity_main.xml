@@ -62,6 +62,16 @@
             android:text="btn_carmera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_yunzhisheng"
+            android:text="btn_yunzhisheng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_zxingdemo"
+            android:text="zxingdemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
  </ScrollView>
 

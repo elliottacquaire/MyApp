@@ -13,4 +13,8 @@
     <color name="corner_color">#00FF00</color>
     <!-- QRCode scanner color end -->
 
+    <color name="navigationBarColor">#f46444</color>
+
+    <color name="colorPrimaryDarkTrans">#CCf57257</color>
+
 </resources>

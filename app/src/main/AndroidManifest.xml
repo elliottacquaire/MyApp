@@ -39,6 +39,12 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--yun zhis shegn -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <!-- 自动聚焦权限 -->
     <!-- carmera -->
@@ -77,6 +83,9 @@
         <activity android:name=".RxjavaActivity" />
         <activity android:name=".xunfeivoice.XunfeiVoiceActivity" />
         <activity android:name=".BaiduVoice.BaiduVoiceActivity" />
+        <activity android:name=".zxingdemo.TestGeneratectivity"/>
+        <activity android:name=".zxingdemo.MainActivity"/>
+        <activity android:name=".zxingdemo.TestScanActivity"/>
 
         <service
             android:name=".service.MyService"
@@ -87,7 +96,9 @@
             android:exported="false" />
 
         <activity android:name=".camera.CameraActivity" />
-        <activity android:name=".Rxjava2Activity"></activity>
+        <activity android:name=".Rxjava2Activity" />
+        <activity android:name=".yunzhisheng.YunzhishengActivity"/>
+        <activity android:name=".yunzhisheng.TTSOfflineActivity"/>
     </application>
 
 </manifest>
