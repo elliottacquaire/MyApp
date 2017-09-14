@@ -6,25 +6,64 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.exple.ex_elli.myapp.MainActivity">
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Hello World!"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+       <Button
+           android:id="@+id/btn_jump_first"
+           android:text="btn_jump_first"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/btn_jump_first"
-        android:text="btn_jump_first"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+       <Button
+           android:id="@+id/btn_jump_second"
+           android:text="btn_jump_second"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+       <Button
+           android:id="@+id/btn_zxcode"
+           android:text="btn_zxcode"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+       <Button
+           android:id="@+id/btn_voice"
+           android:text="btn_vocie"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_xunfei"
+            android:text="btn_xunfei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_baidu"
+            android:text="btn_baidu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_rxjava"
+            android:text="btn_java"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_carmera"
+            android:text="btn_carmera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+ </ScrollView>
 
-    <Button
-        android:id="@+id/btn_jump_second"
-        android:text="btn_jump_second"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>
