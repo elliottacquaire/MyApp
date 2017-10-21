@@ -85,7 +85,7 @@ public class USCSpeechCompound {
 
     public void playReplaceMedia(){
         if (mContext.get() != null){
-            mediaPlayer = MediaPlayer.create(mContext.get(), R.raw.ordervoice);
+            mediaPlayer = MediaPlayer.create(mContext.get(), R.raw.noticevoice);
             mediaPlayer.start();
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override

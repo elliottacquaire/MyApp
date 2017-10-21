@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Carson_Ho</title>
+
+    // JS代码
+
+    <div class="title" id="ddd"  onclick="invokeAndroidMethod('JS调用Android中的方法！')">打油诗</div>
+    <script>
+// Android需要调用的方法
+   function callJS(){
+      alert("Android调用了JS的callJS方法");
+   };
+
+         function invokeAndroidMethod(info) {
+      javascript:Android.showToast(info);
+    };
+    function callAndroid(){
+            /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+            document.location = "js://webview?arg1=111&arg2=222";
+         }
+</script>
+
+</head>
+
+</html>

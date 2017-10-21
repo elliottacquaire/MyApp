@@ -39,12 +39,12 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!--yun zhis shegn -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- yun zhis shegn -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!-- 自动聚焦权限 -->
     <!-- carmera -->
@@ -83,9 +83,9 @@
         <activity android:name=".RxjavaActivity" />
         <activity android:name=".xunfeivoice.XunfeiVoiceActivity" />
         <activity android:name=".BaiduVoice.BaiduVoiceActivity" />
-        <activity android:name=".zxingdemo.TestGeneratectivity"/>
-        <activity android:name=".zxingdemo.MainActivity"/>
-        <activity android:name=".zxingdemo.TestScanActivity"/>
+        <activity android:name=".zxingdemo.TestGeneratectivity" />
+        <activity android:name=".zxingdemo.MainActivity" />
+        <activity android:name=".zxingdemo.TestScanActivity" />
 
         <service
             android:name=".service.MyService"
@@ -97,8 +97,31 @@
 
         <activity android:name=".camera.CameraActivity" />
         <activity android:name=".Rxjava2Activity" />
-        <activity android:name=".yunzhisheng.YunzhishengActivity"/>
-        <activity android:name=".yunzhisheng.TTSOfflineActivity"/>
+        <activity android:name=".yunzhisheng.YunzhishengActivity" />
+        <activity android:name=".yunzhisheng.TTSOfflineActivity" />
+        <activity android:name=".rxblinding.RxBindingActivity" />
+        <activity android:name=".unittest.UnitTestActivity" />
+        <activity android:name=".viewpager.ViewPagerActivity" />
+        <activity android:name=".ServiceActivity" />
+
+        <service
+            android:name=".service.MyTestService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".animation.AnimationActivity" />
+        <activity android:name=".animation.FirstActivity" />
+        <activity android:name=".recyclerview.RecyclerVIewActivity" />
+        <activity android:name=".recyclerview.SwipeRecyclerViewActivity" />
+        <activity android:name=".ViewPageScrollActivity" />
+        <activity android:name=".JavaConstructActivity" />
+
+        <service
+            android:name=".service.BackService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".WebViewJavaScriptActivity"></activity>
     </application>
 
 </manifest>

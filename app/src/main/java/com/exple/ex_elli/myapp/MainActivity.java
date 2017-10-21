@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.exple.ex_elli.myapp.BaiduVoice.BaiduVoiceActivity;
+import com.exple.ex_elli.myapp.animation.AnimationActivity;
 import com.exple.ex_elli.myapp.camera.CameraActivity;
+import com.exple.ex_elli.myapp.recyclerview.RecyclerVIewActivity;
 import com.exple.ex_elli.myapp.xunfeivoice.XunfeiVoiceActivity;
 import com.exple.ex_elli.myapp.yunzhisheng.YunzhishengActivity;
 import com.exple.ex_elli.myapp.zxingcode.ZMainActivity;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnYunzhisheng;
     @BindView(R.id.btn_zxingdemo)
     Button btnZxingdemo;
+    @BindView(R.id.btn_servicee)
+    Button btnServicee;
 
     public static Intent makeIntent(Activity activity, Bundle bundle) {
         Intent intent = new Intent(activity, MainActivity.class);
@@ -75,7 +79,15 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_jump_first, R.id.btn_jump_second, R.id.btn_yunzhisheng,R.id.btn_zxingdemo, R.id.btn_zxcode, R.id.btn_voice, R.id.btn_xunfei, R.id.btn_baidu, R.id.btn_rxjava, R.id.btn_carmera})
+    @OnClick(
+            {
+            R.id.btn_jump_first, R.id.btn_jump_second, R.id.btn_yunzhisheng,R.id.btn_recyclerview,
+            R.id.btn_servicee,R.id.btn_zxingdemo, R.id.btn_zxcode, R.id.btn_voice,R.id.btn_viewpage,
+            R.id.btn_xunfei, R.id.btn_baidu, R.id.btn_rxjava, R.id.btn_carmera,R.id.btn_animation,
+            R.id.btn_javascript
+
+    }
+    )
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_jump_first:
@@ -117,6 +129,26 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_zxingdemo:
                 Intent zingdemo = new Intent(MainActivity.this, com.exple.ex_elli.myapp.zxingdemo.MainActivity.class);
                 startActivity(zingdemo);
+                break;
+            case R.id.btn_servicee:
+                Intent service = new Intent(MainActivity.this, ServiceActivity.class);
+                startActivity(service);
+                break;
+            case R.id.btn_animation:
+                Intent servicea = new Intent(MainActivity.this, AnimationActivity.class);
+                startActivity(servicea);
+                break;
+            case R.id.btn_recyclerview:
+                Intent servicrecycler = new Intent(MainActivity.this, RecyclerVIewActivity.class);
+                startActivity(servicrecycler);
+                break;
+            case R.id.btn_viewpage:
+                Intent viewpageIntent = new Intent(MainActivity.this, ViewPageScrollActivity.class);
+                startActivity(viewpageIntent);
+                break;
+            case R.id.btn_javascript:
+                Intent btn_javascript = new Intent(MainActivity.this, WebViewJavaScriptActivity.class);
+                startActivity(btn_javascript);
                 break;
         }
     }
